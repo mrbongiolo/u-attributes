@@ -75,7 +75,7 @@ class Micro::Attributes::FeaturesTest < Minitest::Test
     assert_includes(CStrict.ancestors, ::Micro::Attributes)
     assert_includes(CStrict.ancestors, Features::Initialize)
     assert_includes(CStrict.ancestors, Features::Diff)
-    assert_includes(CStrict.ancestors, Features::Initialize::Strict)
+    assert_includes(CStrict.singleton_class.ancestors, Features::Initialize::Strict::ClassMethods)
     refute_includes(CStrict.ancestors, Features::ActiveModelValidations)
 
     assert_includes(D.ancestors, ::Micro::Attributes)
@@ -87,7 +87,7 @@ class Micro::Attributes::FeaturesTest < Minitest::Test
     assert_includes(DStrict.ancestors, ::Micro::Attributes)
     assert_includes(DStrict.ancestors, Features::Initialize)
     refute_includes(DStrict.ancestors, Features::Diff)
-    assert_includes(DStrict.ancestors, Features::Initialize::Strict)
+    assert_includes(DStrict.singleton_class.ancestors, Features::Initialize::Strict::ClassMethods)
     assert_includes(DStrict.ancestors, Features::ActiveModelValidations)
 
     assert_includes(E.ancestors, ::Micro::Attributes)
@@ -105,7 +105,7 @@ class Micro::Attributes::FeaturesTest < Minitest::Test
     assert_includes(FStrict.ancestors, ::Micro::Attributes)
     assert_includes(FStrict.ancestors, Features::Initialize)
     assert_includes(FStrict.ancestors, Features::Diff)
-    assert_includes(FStrict.ancestors, Features::Initialize::Strict)
+    assert_includes(FStrict.singleton_class.ancestors, Features::Initialize::Strict::ClassMethods)
     assert_includes(FStrict.ancestors, Features::ActiveModelValidations)
   end
 
